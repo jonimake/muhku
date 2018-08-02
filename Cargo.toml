@@ -1,0 +1,6 @@
+[package]
+name = "muhku"
+version = "0.1.0"
+authors = ["Joni Mäkelä <joni.makela@gmail.com>"]
+
+[dependencies]
