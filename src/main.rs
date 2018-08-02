@@ -27,13 +27,13 @@ fn main() {
 
 }
 
-fn muhku<'a>(text: &'static str, largest_muhkus: &'a mut Vec<(TokenRefType, TokenRefType)>) -> u32 {
+fn muhku<'a>(text: &'static str, largest_muhkus: &'a mut Vec<(TokenRefType, TokenRefType)>) -> u8 {
 
     //includes the file as an str constant
     let contents = text;
     let words: Vec<&str> = tokenize(contents);
 
-    let mut largest_single = 0;
+    let mut largest_single = 0 as u8;
 
     let tokenset: HashSet<TokenRefType> = words.iter().map(|word| {
         let token = TokenRefType::new(word);
@@ -58,7 +58,7 @@ fn muhku<'a>(text: &'static str, largest_muhkus: &'a mut Vec<(TokenRefType, Toke
         for index2 in index1..tokens.len() {
             let item2 = &tokens[index2];
             let muhkeusunion = item1.bitvec | item2.bitvec;
-            let muhkeus = muhkeusunion.count_ones();
+            let muhkeus = muhkeusunion.count_ones() as u8;
             if muhkeus > largest_muhku {
                 largest_muhkus.clear();
                 largest_muhku = muhkeus;
@@ -73,13 +73,13 @@ fn muhku<'a>(text: &'static str, largest_muhkus: &'a mut Vec<(TokenRefType, Toke
     largest_muhku
 }
 
-pub fn muhku_string<'a>(text: &'static str, largest_muhkus: &'a mut Vec<(Token,Token)>) -> u32 {
+pub fn muhku_string<'a>(text: &'static str, largest_muhkus: &'a mut Vec<(Token,Token)>) -> u8 {
     type TokenType = Token;
     //includes the file as an str constant
     let contents = text;
     let words: Vec<&str> = tokenize(contents);
 
-    let mut largest_single = 0;
+    let mut largest_single = 0u8;
 
     let tokenset: HashSet<TokenType> = words.iter().map(|word| {
         let token = TokenType::new(word);
@@ -105,7 +105,7 @@ pub fn muhku_string<'a>(text: &'static str, largest_muhkus: &'a mut Vec<(Token,T
         for index2 in index1..tokens.len() {
             let item2 = &tokens[index2];
             let muhkeusunion = item1.bitvec | item2.bitvec;
-            let muhkeus = muhkeusunion.count_ones();
+            let muhkeus = muhkeusunion.count_ones() as u8;
             if muhkeus > largest_muhku {
                 largest_muhkus.clear();
                 largest_muhku = muhkeus;

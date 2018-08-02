@@ -3,7 +3,7 @@ use std::hash::{Hash, Hasher};
 
 #[derive(Debug, Clone, Copy, Eq)]
 pub struct TokenRef<'a>{
-    pub muhkeus: u32,
+    pub muhkeus: u8,
     pub bitvec: usize,
     pub original_word: &'a str,
 }
@@ -14,7 +14,7 @@ impl<'a> TokenRef<'a> {
         TokenRef {
             original_word: word,
             bitvec: bits,
-            muhkeus: bits.count_ones()
+            muhkeus: bits.count_ones() as u8
         }
     }
 }

@@ -3,7 +3,7 @@ use std::hash::{Hash, Hasher};
 
 #[derive(Debug, Clone, Eq)]
 pub struct Token{
-    pub muhkeus: u32,
+    pub muhkeus: u8,
     pub bitvec: usize,
     pub original_word: String,
 }
@@ -19,7 +19,7 @@ impl Token {
         Token {
             original_word: original_word.to_owned(),
             bitvec: bits,
-            muhkeus: bits.count_ones()
+            muhkeus: bits.count_ones() as u8
         }
     }
 }
